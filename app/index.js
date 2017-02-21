@@ -1,1 +1,1 @@
-console.log('blah');
+require('../node_modules/slim-js/Slim.js');
