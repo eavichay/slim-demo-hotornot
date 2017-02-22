@@ -1,6 +1,6 @@
 // webpack.config.js
-var path = require('path')
-var HtmlWebpackPlugin = require('html-webpack-plugin')
+var path = require('path');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 // Include Section
 
 module.exports = {
