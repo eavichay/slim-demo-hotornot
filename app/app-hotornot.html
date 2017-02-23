@@ -1,17 +1,21 @@
-require('./hot-item');
-require('./add-item');
+<script>
 var API = require('./items/API');
 
 Slim.tag('app-hotornot', class extends Slim {
 
-    get template() {
+    get loadedTemplate() {
         return `
-<h1>Hot or not?</h1>
+<h2>Slim: Hot or not!?</h2>
+<span bind>[[voteCount]] Votes so far!</span>
 <hr/>
 <add-item on-new="handleNewItem"></add-item>
 <hr/>
 <hot-item slim-repeat="items" slim-repeat-as="item" on-vote="handleVote"></hot-item>
 `
+    }
+
+    get template() {
+        return `<div>Loading...</div>`
     }
 
     handleVote(item) {
@@ -24,21 +28,30 @@ Slim.tag('app-hotornot', class extends Slim {
 
     onBeforeCreated() {
         this.items = [];
+        this.voteCount = 0;
         API.observer.on('value', (context) => {
             let raw = context.val();
             this.items = [];
-            Object.keys(raw).forEach( key => {
-                this.items.push( {
+            this.voteCount = 0;
+            this.items = Object.keys(raw).map( key => {
+                if (raw[key].votes) {
+                    this.voteCount += raw[key].votes;
+                }
+                return {
                     id: key,
                     data: raw[key]
-                })
+                }
             });
             this.items = this.items.sort( (a,b) => {
                 if (a.data.votes < b.data.votes) return 1;
                 return -1;
             });
-            this.update();
+            this.render(this.loadedTemplate);
         })
     }
 
-})
+});
+</script>
+<style>
+
+</style>

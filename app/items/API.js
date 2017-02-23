@@ -5,7 +5,8 @@ module.exports = {
     addItem: function(name, url) {
         firebase.database().ref('item').push({
             name: name,
-            img: url
+            img: url,
+            votes: 0
         });
     },
 

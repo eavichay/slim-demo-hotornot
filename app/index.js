@@ -1,7 +1,9 @@
 require('../node_modules/slim-js/Slim.js');
 require('./items/API.js');
 
-require('./app-hotornot');
+require('./add-item.html');
+require('./app-hotornot.html');
+require('./hot-item.html');
 
 
 

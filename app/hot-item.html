@@ -1,0 +1,54 @@
+<script>
+    import {Slim} from "slim-js";
+
+    Slim.tag('hot-item', class extends Slim {
+
+        get template() {
+            return `
+                    <div class="hot-title" bind>[[item.data.name]]</div>
+                    <br/>
+                    <div class="hot-image" #img></div>
+                    <!--<img width="150" height="150" src="[[item.data.img]]" />-->
+                    <br/>
+                    <span class="hot-votes" bind>[[item.data.votes]] votes</span>
+                    <button click="clickVote">HOT!!!</button>
+                    `;
+        }
+
+        onAfterRender() {
+            this.img.style.backgroundImage = `url("${this.item.data.img}")`;
+        }
+
+        clickVote() {
+            this.callAttribute('on-vote', this.item);
+        }
+
+    });
+</script>
+
+<style>
+    hot-item {
+        display: inline-block;
+        border-radius: 0.5em;
+        border: 1px solid black;
+        margin-right: 0.5em;
+        padding: 0.5em;
+        background: lightblue;
+    }
+
+    hot-item .hot-votes {
+        float: right;
+    }
+
+    hot-item .hot-title {
+        font-size: 2em;
+        text-align: center;
+    }
+
+    hot-item .hot-image {
+        width: 150px;
+        height: 150px;
+        background-size: cover;
+        border-radius: 50%;
+    }
+</style>

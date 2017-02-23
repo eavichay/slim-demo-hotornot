@@ -27,6 +27,7 @@
     "html-webpack-plugin": "^2.28.0",
     "include-loader": "^1.1.0-beta",
     "vulcanize-loader": "^2.0.1",
+    "wc-loader": "^1.1.1",
     "webpack": "^2.2.1",
     "webpack-dev-server": "^2.4.1"
   }

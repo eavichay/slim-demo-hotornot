@@ -13,6 +13,11 @@ module.exports = {
     module: {
         loaders: [
             {
+                test: /\.html?/,
+                exclude: /index\.tmpl\.html/,
+                loader: 'babel-loader!wc-loader'
+            },
+            {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 loader: 'babel-loader',
