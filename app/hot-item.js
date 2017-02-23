@@ -7,8 +7,7 @@ Slim.tag('hot-item', class extends Slim {
                     <img src="[[item.data.img]]" />
                     <br/>
                     <button click="clickVote">HOT!!!</button>
-                </div>
-                <hr/>`
+                </div>`
     }
 
     clickVote() {
