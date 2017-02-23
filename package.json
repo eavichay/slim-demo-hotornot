@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/eavichay/slim-demo-hotornot#readme",
   "dependencies": {
-    "slim-js": "^2.3.6"
+    "slim-js": "^2.3.7"
   },
   "devDependencies": {
     "babel-core": "^6.23.1",
